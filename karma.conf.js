@@ -12,6 +12,7 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('@angular/cli/plugins/karma')
     ],
+    browsers: ['ChromiumHeadlessNoSandbox'],
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
@@ -21,14 +22,13 @@ module.exports = function (config) {
     },
     angularCli: {
       environment: 'dev'
+    },    
+    customLaunchers: {
+      ChromiumHeadlessNoSandbox: {
+      base: 'ChromiumHeadless',
+        flags: ['--no-sandbox']
+      }
     },
-    browsers: ['ChromiumHeadlessNoSandbox'],
-      customLaunchers: {
-        ChromiumHeadlessNoSandbox: {
-        base: 'ChromiumHeadless',
-          flags: ['--no-sandbox']
-        }
-      },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
