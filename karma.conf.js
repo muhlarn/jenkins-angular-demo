@@ -22,6 +22,13 @@ module.exports = function (config) {
     angularCli: {
       environment: 'dev'
     },
+    browsers: ['ChromiumHeadlessNoSandbox'],
+      customLaunchers: {
+        ChromiumHeadlessNoSandbox: {
+        base: 'ChromiumHeadless',
+          flags: ['--no-sandbox']
+        }
+      },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
